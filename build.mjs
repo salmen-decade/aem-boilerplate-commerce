@@ -12,6 +12,29 @@ overrideGQLOperations([
     skipFragments: ['DOWNLOADABLE_ORDER_ITEMS_FRAGMENT'],
     operations: [],
   },
+  {
+    npm: '@dropins/storefront-product-discovery',
+    operations: [
+      // Here we are adding the options to the ProductView fragment
+      // that we can use in the PLP to render the options in the product actions
+      `
+        fragment ProductView on ProductSearchItem {
+          productView {
+            ... on ComplexProductView {
+              options {
+                id
+                title
+                values {
+                  id
+                  title
+                }
+              }
+            }
+          }
+        }
+      `,
+    ],
+  },
   // {
   //   npm: '@dropins/storefront-checkout',
   //   operations: [],
