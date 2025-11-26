@@ -1,0 +1,13 @@
+# Cloudflare Workers configuration for Storybook deployment
+name = "aem-commerce-storybook"
+compatibility_date = "2024-01-01"
+
+# Static assets configuration
+[assets]
+directory = "./storybook-static"
+
+# Build configuration for CI/CD
+[build]
+command = "npm install && npm run build-storybook"
+cwd = "storybook"
+watch_dir = "storybook"
